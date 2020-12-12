@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: result
+  name: result
+spec:
+  selector:
+    matchLabels:
+      app: result
+  template:
+    metadata:
+      labels:
+        app: result
+    spec:
+      containers:
+      - image: lucj/voting:result
+        name: result
+        ports:
+        - containerPort: 80
+          name: result
+        resources:
+          limits:
+            cpu: 80m
+            memory: 64Mi
+          requests:
+            cpu: 80m
+            memory: 64Mi
